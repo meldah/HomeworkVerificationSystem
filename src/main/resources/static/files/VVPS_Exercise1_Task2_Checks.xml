@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Homework submission condition -->
+<condition>
+	<files>
+		<file>
+			<name>Code_Review_Checklist</name>
+			<extension>.docx</extension>
+			<maxSize>10</maxSize>
+		</file>
+		<file>
+			<name>Code_Review_Checklist_Filled</name>
+			<extension>/</extension>
+			<maxSize>100</maxSize>
+		</file>
+		<file>
+			<name>Calendar</name>
+			<extension>/</extension>
+			<maxSize>100</maxSize>
+		</file>
+	</files>
+</condition>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<th:block th:include="~{fragments/head}"></th:block>
+<link rel="stylesheet" type="text/css" th:href="@{/css/userForm.css}">
+</head>
+<body>
+		<header>
+			<th:block th:include="~{fragments/navbar}"></th:block>
+		</header>
+		<div class="form-page-wrapper">
+		<div class="wrapper">
+		<div class="title">Teachers Register</div>
+		<form th:method="post" th:object="${teacherRegisterModel}" th:action="@{/teachers/register}">
+			<div class="field">
+         		<input type="text" required name="firstName" th:value="*{firstName}">
+         		<label>First Name...</label>
+        	</div>
+        	<div class="field">
+         		<input type="text" required name="lastName" th:value="*{lastName}">
+         		<label>Last Name...</label>
+        	</div>
+        	<div class="field">
+         		<input type="text" required name="email" th:value="*{email}">
+         		<label>Email...</label>
+         		<th:block th:if="${#fields.hasErrors('email')}">
+                	<small class="text-danger" th:errors="*{email}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="password" required name="password" th:value="*{password}">
+         		<label>Password...</label>
+         		<th:block th:if="${#fields.hasErrors('password')}">
+                	<small class="text-danger" th:errors="*{password}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="password" required name="confirmPassword" th:value="*{confirmPassword}">
+         		<label>Confirm password...</label>
+        	</div>
+			<div class="field">
+          		<input type="submit" value="Register">
+        	</div>
+        	<div class="signup-link">
+				You're a student? <a th:href="@{/students/register}" class="text-info">Register here</a></div>
+		</form>
+	</div>
+	</div>
+</body>
+<footer>
+	<th:block th:include="~{fragments/footer}"></th:block>
+</footer>
+</html>

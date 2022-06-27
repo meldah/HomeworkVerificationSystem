@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<th:block th:include="~{fragments/head}"></th:block>
+</head>
+<body class = "img-background">
+	<header>
+ 		<th:block th:include="~{fragments/navbar}"></th:block>
+ 	</header>
+        <div class="full-height">
+        	<div class="centered">
+	            <h1 class="display-1 font-italic site-name-text-big">Homework Verification</h1>
+	            <hr class = "sep">
+	            <h5 class = "text-sub-light">
+	              	<a th:href="@{/login}" class="pink-index-button">Login</a>.
+	              	 If you don't have an account - <a th:href="@{/students/register}" class="pink-index-button">Register</a>
+	            </h5>
+            </div>
+        </div>
+</body>
+<footer>
+ 		<th:block th:include="~{fragments/footer}"></th:block>
+ </footer>
+</html>

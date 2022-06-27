@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+</head>
+<body>
+<header>
+    <th:block th:include="~{fragments/navbar}"></th:block>
+</header>
+	<hr class="sep" />
+	<div class="main-container">
+    	<h2 class="font-italic text-info" th:text = "${exercise.name}"></h2>
+    	<h4 class="font-italic text-sub">Submit homework</h4>
+    	<hr class="sep">
+    	<th:block th:if="${#lists.size(exercise.tasks)} > 0">	
+	    	<div class="col-md-12 mx-auto">
+		    	<div class = "blue-background">
+		    	<div class = "btn-group">
+	    	    	<th:block th:each="task, iter : ${exercise.tasks}">
+	    	    		<th:block th:if="${task.id} == ${activeTask.id}" >
+			      			<button type="button" class="button" id = "active" th:text="${iter.index + 1 + '.' + task.name}"></button>
+			      		</th:block>
+			      		<th:block th:unless="${task.id} == ${activeTask.id}" >
+			      			<form method="get" th:action="@{/exercise/compete/{courseId}/{exerciseId}/{taskId} (courseId=${course.id}, exerciseId=${exercise.id}, taskId=${task.id})}">
+			      				<button type="submit" class="button" th:text="${iter.index + 1 + '.' + task.name}"></button>
+			      			</form>
+			      		</th:block>
+	        		</th:block>
+		    	</div>
+		    	<div class = "white-background">
+		    		<div class = "task-title-resource">
+		    			<h4 class="font-italic text-sub" th:text = "${activeTask.name}"></h4>
+		    			<a th:href="@{${activeTask.condition.url}}">
+		    				<img th:src="@{/images/condition_icon.png}" alt="Cond" width="20" height="20"/>
+		    				Condition
+		    			</a>
+		    		</div>
+		    		<form method="post" th:action="@{/tasks/submit}" th:object="${submitHomeworkModel}" enctype="multipart/form-data">
+							<div class="drop-zone">
+								<div class="drop-zone__prompt">
+									<img th:src="@{/images/drop_file_icon.png}" class="drop_file_image" alt="Upload"/>
+									Drop file here or click to upload
+								</div>
+							    <input type="file" required name="file" class="drop-zone__input">
+							</div>
+							<script src="/js/dropbox.js"></script>
+						<div>
+			            	<select class="form-control extension-dropdown text-sub item" required name="extension">
+			                	<option class="hidden text-muted" selected disabled>Extension</option>
+			                	<option class="text-sub">.7z</option>
+			                    <option class="text-sub">.zip</option>
+			                </select>
+			                <th:block>
+			               		<input type="hidden" required name="courseId" th:value="${course.id}" />
+			                	<input type="hidden" required name="exerciseId" th:value="${exercise.id}" />
+			                	<input type="hidden" required name="taskId" th:value="${activeTask.id}" />
+			                </th:block>
+			                <button class = "task-submit-button item" type="submit">Submit</button>
+		                </div>
+	                </form>
+	                <th:block th:if="${homeworkUploadFailure != null}">
+		                <div class="alert alert-danger" th:text="${homeworkUploadFailure}" role="alert">
+						</div>
+					</th:block>
+					<th:block th:if="${homeworkUploadSuccess != null}">
+						<div class="alert alert-success" th:text="${homeworkUploadSuccess}" role="alert">
+						</div>
+					</th:block>
+					
+					<hr class="sep">
+					<th:block th:if="${submission != null}">
+						<div class="table-wrapper">
+							<table>
+							<thead>
+						        <tr>
+						            <th class="text-center" colspan="3"><b>Submission</b></th>
+						        </tr>
+						        <tr>
+						            <th class="text-center"><b>Link</b></th>
+						            <th class="text-center"><b>Submission date</b></th>
+						            <th class="text-center"><b>Grade</b></th>
+						        </tr>
+						    </thead>
+						        <tbody>
+						            <tr>
+						                <td class="text-center">
+						                	<a th:href="@{${submission.file.url}}" class = "txt-pink">
+							    				Submission
+							    			</a>
+						                </td>
+						                <td class="text-center" th:text="${submission.createdOn}"></td>
+						                <th:block th:if="${submission.isGraded}">
+						     				<td class="text-center" th:text="${submission.grade}"></td>
+						     			</th:block>
+							      		<th:block th:unless="${submission.isGraded}">
+							      			<td class="text-center">Not graded!</td>
+							      		</th:block>
+									</tr>
+						        </tbody>
+						    </table>
+					    </div>
+				    </th:block>
+				    <th:block th:unless="${submission != null}">
+				    	<div class="alert alert-info" role="alert">No homework has been submitted yet!</div>
+				    </th:block>
+			    <hr class="sep">
+				</div>
+				</div>
+			</div>
+		</th:block>
+		<th:block th:unless="${#lists.size(exercise.tasks)} > 0">
+			<div class="alert alert-info" role="alert">No tasks in this exercise!</div>
+		</th:block>
+		<hr class="sep" />
+	</div>
+   	<hr class="sep" />
+</body>
+<footer>
+    <th:block th:include="~{fragments/footer}"></th:block>
+</footer>
+</html>

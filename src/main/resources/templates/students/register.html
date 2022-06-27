@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<th:block th:include="~{fragments/head}"></th:block>
+<th:block>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/userForm.css}">
+</th:block>
+</head>
+<body>
+		<header>
+			<th:block th:include="~{fragments/navbar}"></th:block>
+		</header>
+		<div class="form-page-register">
+		<div class="wrapper">
+      	<div class="title">Students register</div>
+		<form th:method="post" th:object="${studentRegisterModel}" th:action="@{/students/register}">
+			<div class="field">
+         		<input type="text" required name="firstName" th:value="*{firstName}">
+         		<label>First Name...</label>
+        	</div>
+        	<div class="field">
+         		<input type="text" required name="lastName" th:value="*{lastName}">
+         		<label>Last Name...</label>
+        	</div>
+        	<div class="field">
+         		<input type="text" required name="email" id="email" th:value="*{email}">
+         		<label>Email...</label>
+         		<th:block th:if="${#fields.hasErrors('email')}">
+                	<small class="text-danger" th:errors="*{email}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="password" required name="password" th:value="*{password}">
+         		<label>Password...</label>
+         		<th:block th:if="${#fields.hasErrors('password')}">
+                	<small class="text-danger" th:errors="*{password}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="password" required name="confirmPassword" th:value="*{confirmPassword}">
+         		<label>Confirm password...</label>
+        	</div>
+        	<div class="field">
+         		<select required name="faculty" th:value="*{faculty}">
+                	<option selected>Факултет Автоматика</option>
+                    <option>Електротехнически Факултет</option>
+                   	<option>Енергомашиностроителен Факултет</option>
+                   	<option>Машинно-технологичен Факултет</option>
+                   	<option>Машиностроителен Факултет</option>
+                   	<option>Факултет Електронна техника и технологии</option>
+                   	<option>Факултет по телекомуникации</option>
+                   	<option>Факултет Компютърни системи и технологии</option>
+                   	<option>Факултет по транспорта</option>
+                   	<option>Стопански Факултет</option>
+                   	<option>Факултет Приложна математика и информатика</option>
+                   	<option>Факултет по германско инженерно обучение и промишлен мениджмънт</option>
+                   	<option>Факултет по френско обучение по електроинженерство</option>
+                   	<option>Факултет по английско инженерно обучение</option>
+                </select>
+                <th:block th:if="${#fields.hasErrors('faculty')}">
+                	<small class="text-danger" th:errors="*{faculty}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="text" required name="facultyNumber" th:value="*{facultyNumber}">
+         		<label>Faculty Number...</label>
+         		<th:block th:if="${#fields.hasErrors('facultyNumber')}">
+                	<small class="text-danger" th:errors="*{facultyNumber}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+	         	<input type="number" min="0" step="1" required name="stream" th:value="*{stream}">
+         		<label>Stream...</label>
+         		<th:block th:if="${#fields.hasErrors('stream')}">
+                	<small class="text-danger" th:errors="*{stream}"></small>
+            	</th:block>
+        	</div>
+        	<div class="field">
+         		<input type="number" min="0" step="1" required name="group" th:value="*{group}">
+         		<label>Group...</label>
+         		<th:block th:if="${#fields.hasErrors('group')}">
+                	<small class="text-danger" th:errors="*{group}"></small>
+            	</th:block>
+        	</div>
+			<div class="field">
+          		<input type="submit" value="Register">
+        	</div>
+        	<div class="signup-link">
+				You're a teacher? <a th:href="@{/teachers/register}" class="text-info">Register here</a></div>
+		</form>
+	</div>
+	</div>
+<footer>
+	<th:block th:include="~{fragments/footer}"></th:block>
+</footer>
+</body>
+</html>

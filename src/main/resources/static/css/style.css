@@ -1,0 +1,459 @@
+body{
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	 background: linear-gradient(to right, #ece9e6, #ffffff);
+}
+
+html, body{
+	margin: 0px;
+ 	height: 100%;
+  	width: 100%;
+}
+
+.full-height{
+	height: 100%;
+}
+
+.img-background{
+	background-image: url("/images/landing.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	height:100%;
+	background-position: center center;
+	text-align:center;
+	margin:auto;
+	padding:0;
+}
+.main-container {
+    margin: 25px 250px 25px;
+    padding: 10px;
+}
+
+.bg-exodia {
+    background-color: #191970;
+}
+
+.bg-gradient{
+	 background: linear-gradient(to right, #ece9e6, #ffffff);
+	 -webkit-background-clip: text;
+  	 -webkit-text-fill-color: transparent;
+}
+
+.text-exodia {
+    color: #191970;
+}
+
+.text-primary{
+	color: rgb(146, 218, 248)
+}
+
+.text-sub{
+	color: rgb(54, 112, 160);
+}
+
+.text-sub-light{
+	color: #0ABFBC;
+}
+
+.hr-2 {
+    height: 2px;
+}
+
+textarea {
+    resize: none;
+}
+
+.blue-background{
+	margin: 20px;
+	padding: 10px;
+	background-color: rgb(234, 244, 248);
+	border: 1px solid rgb(201, 224, 234);
+}
+
+.white-background{
+	padding: 5px;
+	background-color: white;
+	border: 1px solid rgb(201, 224, 234);
+}
+
+.dark-form-background{
+	margin: auto;
+	padding: 2px;
+	background-color: #160F30;
+	border: 1px solid black;
+}
+
+.table-wrapper{
+ 	padding: 20px;
+    margin: 0px 20px 0px 20px;
+}
+
+.table-wrapper-modal{	
+	 margin: 0 auto;
+}
+
+table{
+	border: 2px solid #160F30;
+	border-collapse: separate;
+    border-radius: 8px;
+    border-spacing: 0px;
+ 	box-shadow: 0 5px 30px rgb(201, 224, 234);
+  	width: 100%;
+  	margin-left: auto;
+	margin-right: auto;	
+}
+
+th, td {
+	background-clip: padding-box;
+    border-radius: 5px;
+	padding: 5px 4px 6px 4px; 
+	font-size: 17px;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #160F30; 
+}
+
+tr{
+	background-color: white;
+}
+
+th{
+	background-color: #1BAC91;
+	color: white;
+}
+
+table tr:nth-child(even){background-color: rgb(188, 188, 194);}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-collapse: separate;
+}
+
+td {
+    border-top: 1px solid #160F30;    
+}
+thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child {
+    border-radius: 4px 0 0 0;
+}
+thead:last-child tr:last-child th:first-child, tbody:last-child tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+ /* Separator */
+.sep {
+	border: 0; 
+	height: 2px; 
+	background-image: linear-gradient(to right, #f0f0f0, #A72693, #1BAC91, #f0f0f0);
+  }
+  
+ .site-name-text{
+	 background: linear-gradient(to right, #A72693, #1BAC91);
+	 -webkit-background-clip: text;
+  	 -webkit-text-fill-color: transparent;
+ }
+ 
+  .site-name-text-big{
+	 background: linear-gradient(to right, #A72693, #0ABFBC);
+	 -webkit-background-clip: text;
+  	 -webkit-text-fill-color: transparent;
+ }
+ 
+ .centered{
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%) 
+ }
+ 
+ .background-color-purple{
+ 	background-color: rgb(36, 22, 99);
+ }
+ 
+ .txt-pink{
+	text-color: #A72693;
+ }
+ 
+ .background-pink{
+ 	background-color: rgb(36, 22, 99);
+ 	border-radius: 8px;
+ }
+
+#active {
+	background-color: rgb(245, 245, 239);
+}
+
+ .btn-group .button {
+  background-color: rgb(234, 244, 248);
+  border: 1px solid rgb(201, 224, 234);
+  color: rgb(54, 112, 160);
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+  border-radius: 5px;
+}
+
+.btn-group .add-button {
+  background-color: rgb(234, 244, 248);
+  border: 1px solid #A72693;
+  color: #A72693;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+  border-radius: 5px;
+}
+
+.btn-group .button:hover:not(#active) {
+  background-color: rgb(127, 211, 246);
+  transition: 0.5s;
+}
+
+.btn-group .add-button:hover:not(#active) {
+  background-color: rgb(127, 211, 246);
+  transition: 0.5s;
+}
+
+.task-title-resource{
+	margin: 0px 10px 0px 5px;
+    padding: 5px;
+}
+
+
+.drop-zone {
+  height: 300px;
+  margin: 10px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 200;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: black; 
+  color: rgb(54, 112, 160);
+  border: 4px dashed rgb(54, 112, 160);
+  border-radius: 10px;
+}
+
+.drop-zone--over {
+  border-style: solid;
+}
+
+.drop-zone__input {
+  display: none;
+}
+
+.drop-zone__thumb {
+  width: 50%;
+  height: 95%;
+  border: 4px solid rgb(54, 112, 160);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(234, 244, 248);
+  background-image: url("/images/file_icon.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.drop-zone__thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+  text-align: center;
+}
+
+.drop_file_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+.extension-dropdown {
+	margin: 10px;
+	cursor: pointer;
+	width: auto;
+	background-color: rgb(234, 244, 248);
+	border: 1px solid rgb(201, 224, 234);
+}
+
+.item {
+	display: inline-block;
+}
+
+.task-submit-button {
+  margin: 10px;
+  width: auto;
+  background-color: rgb(234, 244, 248);
+  border: 1px solid rgb(201, 224, 234);
+  color: rgb(54, 112, 160);
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  border-radius: 5px;
+}
+
+.task-submit-button:hover:not(#active) {
+  background-color: rgb(127, 211, 246);
+  transition: 0.5s;
+}
+
+.buttonHolder{
+	text-align: right;
+}
+
+
+.button-holder-center{
+	text-align: center;
+}
+
+.task-add-button{
+  width: auto;
+  background: #1BAC91;
+  border: 3px solid black;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  position:relative;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.task-add-button:hover:not(#active) {
+  background-color: #043927;
+  transition: 0.5s;
+}
+
+.dark-button {
+  width: auto;
+  background-color: #160F30;
+  border: 1px solid #A72693;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dark-button:hover:not(#active) {
+  color: #A72693;
+  transition: 0.5s;
+}
+
+.navi-dark{
+	background-color: #160F30;
+}
+
+.navi-text{
+	color: #A72693;
+	font: bold;
+}
+
+.pink-text{
+	color: #A72693;
+}
+
+.navi-text:hover{
+	color: white;
+	transition: 0.5s;
+}
+
+.navbar-dropdown{
+	background-color: #160F30;
+}
+
+.greeting{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.pink-index-button{
+    display: inline-block;
+    text-decoration: none;
+    color: #A72693;
+    border: 2px solid #A72693;
+    border-radius: 15px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: 0.4s linear;
+  }
+  .pink-index-button:hover{
+    color: #FAF9E9;
+    background: #A72693;
+    cursor: pointer;
+  }
+  
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 60px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid #160F30;
+  width: 65%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #160F30;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* Logout button */
+.logout-button{
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+.logout-button : active{
+  transform: scale(0.95);
+}

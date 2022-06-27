@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+</head>
+<body>
+<header>
+    <th:block th:include="~{fragments/navbar}"></th:block>
+</header>
+	<div class ="full-height">
+	<hr class="sep">
+    <h1 class="text-center text-info">New Teachers</h1>
+    <div class="table-wrapper">
+  		<div class="button-holder-center" >
+			<a th:href="@{/teachers/allTeachers}">
+	   			<button type="button" class="task-add-button" name="ALL" value="ALL">All teachers</button>
+			</a>
+   		</div>
+	    <hr class="sep">
+	    <th:block th:if="${#sets.size(teachers)} > 0">
+	    <table>
+	        <thead>
+	        <tr>
+	            <th><b>#</b></th>
+	            <th><b>First Name</b></th>
+	            <th><b>Last Name</b></th>
+	            <th><b>Email</b></th>
+	            <th><b>Actions</b></th>
+	        </tr>
+	        </thead>
+	        <tbody>
+	        <th:block th:each="teacher, iter : ${teachers}">
+	            <tr>
+	                <td class="font-weight-bold" th:text="${iter.index + 1}"></td>
+	                <td th:text="${teacher.firstName}"></td>
+	                <td th:text="${teacher.lastName}"></td>
+	                <td th:text="${teacher.email}"></td>
+	                <td>
+		                <div class="row d-flex justify-content-center">
+							<form th:action="@{/users/set-verified/{id}(id=${teacher.id})}" method="post">
+								<button class="btn btn-success btn-width">VERIFY</button>
+							</form>
+							<form th:action="@{/teachers/delete/{id}(id=${teacher.id})}" method="post">
+								<button class="btn btn-danger btn-width">REJECT</button>
+							</form>
+						</div>
+					</td>
+				</tr>
+	        </th:block>
+	        </tbody>
+	    </table>
+	    </th:block>
+	    <th:block th:unless="${#sets.size(teachers)} > 0">
+	    	<div class="alert alert-info" role="alert">No new teachers have been registered!</div>
+	    </th:block>
+	    <hr class="sep">
+	</div>
+	</div>
+    <hr class="sep">
+</body>
+<footer>
+    <th:block th:include="~{fragments/footer}"></th:block>
+</footer>
+</html>
